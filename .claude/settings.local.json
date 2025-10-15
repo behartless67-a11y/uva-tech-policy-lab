@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(git init)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"Initial commit - UVA Tech Policy Lab website\")",
+      "Bash(git branch -M main)",
+      "Bash(git remote add origin https://github.com/behartless67-a11y/uva-tech-policy-lab.git)",
+      "Bash(git push -u origin main)",
+      "Bash(git add admin/config.yml)",
+      "Bash(git commit -m \"Switch to GitHub backend for CMS authentication\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"Add techpolicylab@virginia.edu to all pages\")"
     ],
     "deny": [],
     "ask": []
