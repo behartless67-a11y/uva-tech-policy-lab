@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Adobe Caslon Pro', 'Caslon', Georgia, serif;
     color: var(--text-dark);
@@ -141,6 +145,14 @@ a:hover {
 
 .section.bg-light {
     background-color: var(--light-gray);
+}
+
+.section.research-areas-section {
+    background: linear-gradient(rgba(245, 245, 245, 0.95), rgba(245, 245, 245, 0.95)), url('abstract-technology-background-with-circuit-board-and-blue-lights-digital-communication-line-concept-graphic-hardware-computer-tech-integrated-energy-design.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .section.cta-section {
@@ -337,12 +349,56 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
+/* Contact Form */
+.contact-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--uva-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--uva-orange);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 /* Footer */
 .footer {
     background-color: var(--uva-blue);
     color: var(--white);
-    padding: 0.75rem 0;
+    padding: 1.5rem 0 0.75rem 0;
     text-align: center;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+    opacity: 0.9;
 }
 
 .footer p {

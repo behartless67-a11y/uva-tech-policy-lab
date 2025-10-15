@@ -10,7 +10,8 @@
       "Bash(git add admin/config.yml)",
       "Bash(git commit -m \"Switch to GitHub backend for CMS authentication\")",
       "Bash(git push)",
-      "Bash(git commit -m \"Add techpolicylab@virginia.edu to all pages\")"
+      "Bash(git commit -m \"Add techpolicylab@virginia.edu to all pages\")",
+      "Bash(git commit -m \"Add professional enhancements: SEO, accessibility, contact form, Batten logo, sitemap\")"
     ],
     "deny": [],
     "ask": []
