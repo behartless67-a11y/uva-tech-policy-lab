@@ -1,0 +1,96 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "index.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string", default: "Technology Policy Lab" }
+          - { label: "Hero Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Mission Text", name: "mission", widget: "text" }
+
+      - label: "About Page"
+        name: "about"
+        file: "about.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Mission", name: "mission", widget: "markdown" }
+          - { label: "Contact Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+
+  - name: "news"
+    label: "News & Updates"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "research"
+    label: "Research Projects"
+    folder: "content/research"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Principal Investigators", name: "investigators", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Funding Source", name: "funding", widget: "string", required: false }
+
+  - name: "publications"
+    label: "Publications"
+    folder: "content/publications"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Authors", name: "authors", widget: "string" }
+      - { label: "Publication Venue", name: "venue", widget: "string" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Type", name: "type", widget: "select", options: ["Journal Article", "Conference Paper", "Policy Report", "White Paper", "Working Paper"] }
+      - { label: "Abstract", name: "abstract", widget: "text" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+
+  - name: "people"
+    label: "Team Members"
+    folder: "content/people"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Director", "Faculty", "Research Staff", "Graduate Fellows"] }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Social Media"
+        name: "social"
+        file: "content/settings/social.json"
+        fields:
+          - { label: "Facebook URL", name: "facebook", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+
+      - label: "Contact Information"
+        name: "contact"
+        file: "content/settings/contact.json"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Building", name: "building", widget: "string" }
