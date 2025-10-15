@@ -11,7 +11,10 @@
       "Bash(git commit -m \"Switch to GitHub backend for CMS authentication\")",
       "Bash(git push)",
       "Bash(git commit -m \"Add techpolicylab@virginia.edu to all pages\")",
-      "Bash(git commit -m \"Add professional enhancements: SEO, accessibility, contact form, Batten logo, sitemap\")"
+      "Bash(git commit -m \"Add professional enhancements: SEO, accessibility, contact form, Batten logo, sitemap\")",
+      "Bash(git add IMPROVEMENTS_SUMMARY.md)",
+      "Bash(git commit -m \"Add improvements documentation\")",
+      "Bash(git commit -m \"Add Noah Myung as Director with photo on About and People pages\")"
     ],
     "deny": [],
     "ask": []
