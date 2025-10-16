@@ -201,6 +201,27 @@ a:hover {
     max-width: 900px;
 }
 
+/* Section Dividers */
+.section-divider {
+    max-width: 200px;
+    height: 1px;
+    background-color: #ddd;
+    margin: 3rem auto;
+    position: relative;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--uva-orange);
+    border-radius: 50%;
+}
+
 /* Research Grid */
 .research-grid {
     display: grid;
@@ -225,6 +246,17 @@ a:hover {
 .research-card h3 {
     color: var(--uva-orange);
     margin-bottom: 1rem;
+}
+
+/* Research Card Icons */
+.research-card-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--uva-orange);
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* News List */
