@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Research Project",
+    "description": "Research projects and initiatives"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "investigators": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "funding": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "default": "microscope"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
