@@ -316,6 +316,41 @@ a:hover {
     margin-top: 3rem;
 }
 
+.team-card {
+    text-align: center;
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 3px solid var(--uva-orange);
+}
+
+.team-role {
+    color: var(--uva-orange);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.team-bio {
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+    margin-bottom: 0.5rem;
+}
+
+.team-email a {
+    color: var(--uva-blue);
+    text-decoration: none;
+}
+
+.team-email a:hover {
+    color: var(--uva-orange);
+}
+
 .team-member {
     text-align: center;
 }
