@@ -60,8 +60,28 @@
         <section class="section bg-light">
             <div class="container">
                 <h2>Current Research Projects</h2>
-                <div id="projects-container">
-                    <p>Loading...</p>
+                <div class="research-grid">
+                    <div class="research-card" style="margin-bottom: 2rem;">
+                        <h3>AI Governance Frameworks</h3>
+                        <p><strong>Principal Investigators:</strong> Dr. Sarah Chen, Dr. Michael Roberts</p>
+                        <p>Developing comprehensive policy frameworks for responsible AI deployment in government and private sector applications, with focus on transparency, accountability, and fairness.</p>
+                        <p><em>Funded by: National Science Foundation</em></p>
+                        <p><strong>Status:</strong> Active</p>
+                    </div>
+                    <div class="research-card" style="margin-bottom: 2rem;">
+                        <h3>Digital Privacy in Healthcare</h3>
+                        <p><strong>Principal Investigators:</strong> Dr. Emily Watson</p>
+                        <p>Examining privacy-preserving technologies and regulatory approaches for protecting patient data in an era of digital health records and telemedicine.</p>
+                        <p><em>Funded by: Virginia Department of Health</em></p>
+                        <p><strong>Status:</strong> Active</p>
+                    </div>
+                    <div class="research-card" style="margin-bottom: 2rem;">
+                        <h3>Broadband Equity Initiative</h3>
+                        <p><strong>Principal Investigators:</strong> Dr. James Thompson, Dr. Lisa Park</p>
+                        <p>Analyzing digital divide issues in rural Virginia and developing policy recommendations for equitable broadband infrastructure deployment.</p>
+                        <p><em>Funded by: Virginia Telecommunications Initiative</em></p>
+                        <p><strong>Status:</strong> Active</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -124,50 +144,5 @@
         </div>
     </footer>
 
-    <script>
-        // Configuration - change this URL when deploying to production
-        const API_URL = 'https://attractive-spirit-production.up.railway.app';
-
-        async function loadProjects() {
-            try {
-                const response = await fetch(`${API_URL}/api/projects?populate=*`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-
-                renderProjects(data.data);
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                document.getElementById('projects-container').innerHTML =
-                    '<p style="color: red;">Error loading research projects. Please try again later.</p>';
-            }
-        }
-
-        function renderProjects(projects) {
-            const container = document.getElementById('projects-container');
-
-            if (projects.length === 0) {
-                container.innerHTML = '<p>No research projects available at this time. Check back soon for updates on our latest work.</p>';
-                return;
-            }
-
-            // Sort by order field or date
-            projects.sort((a, b) => (a.order || 0) - (b.order || 0));
-
-            container.innerHTML = projects.map(project => `
-                <div class="research-card" style="margin-bottom: 2rem;">
-                    <h3>${project.title}</h3>
-                    ${project.principalInvestigators ? `<p><strong>Principal Investigators:</strong> ${project.principalInvestigators}</p>` : ''}
-                    <p>${project.description}</p>
-                    ${project.funding ? `<p><em>Funded by: ${project.funding}</em></p>` : ''}
-                    ${project.status ? `<p><strong>Status:</strong> ${project.status}</p>` : ''}
-                </div>
-            `).join('');
-        }
-
-        // Load projects when page loads
-        document.addEventListener('DOMContentLoaded', loadProjects);
-    </script>
 </body>
 </html>

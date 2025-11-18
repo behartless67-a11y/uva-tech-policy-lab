@@ -54,8 +54,14 @@
         <section class="section">
             <div class="container">
                 <h2>Director</h2>
-                <div id="director-grid" class="team-grid" style="grid-template-columns: 1fr; max-width: 600px; margin: 3rem auto;">
-                    <p>Loading...</p>
+                <div class="team-grid" style="grid-template-columns: 1fr; max-width: 600px; margin: 3rem auto;">
+                    <div class="team-card">
+                        <img src="noah-myung.jpg" alt="Noah Myung" class="team-photo" onerror="this.src='default-avatar.jpg'">
+                        <h3>Noah Myung</h3>
+                        <p class="team-role">Director, Technology Policy Lab</p>
+                        <p class="team-bio">Noah Myung is an Associate Professor at the Frank Batten School of Leadership and Public Policy. His research focuses on organizational behavior and decision making in the public sector.</p>
+                        <p class="team-email"><a href="mailto:techpolicylab@virginia.edu">techpolicylab@virginia.edu</a></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -64,8 +70,8 @@
         <section class="section bg-light">
             <div class="container">
                 <h2>Faculty Affiliates</h2>
-                <div id="faculty-grid" class="team-grid">
-                    <p>Loading...</p>
+                <div class="team-grid">
+                    <p>Faculty affiliates to be announced.</p>
                 </div>
             </div>
         </section>
@@ -74,8 +80,8 @@
         <section class="section">
             <div class="container">
                 <h2>Research Staff</h2>
-                <div id="staff-grid" class="team-grid">
-                    <p>Loading...</p>
+                <div class="team-grid">
+                    <p>Research staff to be announced.</p>
                 </div>
             </div>
         </section>
@@ -84,8 +90,8 @@
         <section class="section bg-light">
             <div class="container">
                 <h2>Graduate Research Fellows</h2>
-                <div id="fellows-grid" class="team-grid">
-                    <p>Loading...</p>
+                <div class="team-grid">
+                    <p>Graduate fellows to be announced.</p>
                 </div>
             </div>
         </section>
@@ -107,66 +113,5 @@
         </div>
     </footer>
 
-    <script>
-        // Configuration - change this URL when deploying to production
-        const API_URL = 'https://attractive-spirit-production.up.railway.app';
-
-        async function loadTeamMembers() {
-            try {
-                const response = await fetch(`${API_URL}/api/team-members?populate=*`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-
-                // Group team members by category
-                const directors = data.data.filter(m => m.category === 'Director');
-                const faculty = data.data.filter(m => m.category === 'Faculty');
-                const staff = data.data.filter(m => m.category === 'Research Staff');
-                const fellows = data.data.filter(m => m.category === 'Graduate Fellows');
-
-                // Render each category
-                renderTeamMembers('director-grid', directors);
-                renderTeamMembers('faculty-grid', faculty);
-                renderTeamMembers('staff-grid', staff);
-                renderTeamMembers('fellows-grid', fellows);
-            } catch (error) {
-                console.error('Error loading team members:', error);
-                document.querySelectorAll('.team-grid').forEach(grid => {
-                    grid.innerHTML = '<p style="color: red;">Error loading team members. Please try again later.</p>';
-                });
-            }
-        }
-
-        function renderTeamMembers(gridId, members) {
-            const grid = document.getElementById(gridId);
-
-            if (members.length === 0) {
-                grid.innerHTML = '<p>No team members in this category yet.</p>';
-                return;
-            }
-
-            // Sort by order field
-            members.sort((a, b) => (a.order || 0) - (b.order || 0));
-
-            grid.innerHTML = members.map(member => {
-                const photoUrl = member.photo?.formats?.medium?.url || member.photo?.url;
-                const photoSrc = photoUrl ? `${API_URL}${photoUrl}` : 'default-avatar.jpg';
-
-                return `
-                    <div class="team-card">
-                        <img src="${photoSrc}" alt="${member.name}" class="team-photo" onerror="this.src='default-avatar.jpg'">
-                        <h3>${member.name}</h3>
-                        <p class="team-role">${member.role}</p>
-                        <p class="team-bio">${member.bio}</p>
-                        ${member.email ? `<p class="team-email"><a href="mailto:${member.email}">${member.email}</a></p>` : ''}
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Load team members when page loads
-        document.addEventListener('DOMContentLoaded', loadTeamMembers);
-    </script>
 </body>
 </html>
